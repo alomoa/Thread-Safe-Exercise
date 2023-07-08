@@ -19,9 +19,10 @@
     {
         // We have to make lower before we search so we search case insensitive
         search = search.ToLowerInvariant();
-        _name.Last = _name.Last.ToLowerInvariant();
-        _name.First = _name.First.ToLowerInvariant();
-        return _name.Search(search);
+        Name copy = new Name(_name);
+        copy.Last = copy.Last.ToLowerInvariant();
+        copy.First = copy.First.ToLowerInvariant(); 
+        return copy.Search(search);
     }
 
     public string Location { get;}
